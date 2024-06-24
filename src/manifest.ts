@@ -39,8 +39,8 @@ export default defineManifest({
   ],
 
   externally_connectable: {
-    // matches: ['http://localhost:3000/*', 'https://bitbadges.io/*'],
-    matches: ['<all_urls>'],
+    matches: ['http://localhost:3000/*', 'https://bitbadges.io/*'],
+    // matches: ['<all_urls>'],
   },
   permissions: ['storage'],
 })
