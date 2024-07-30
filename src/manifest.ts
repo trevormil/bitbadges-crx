@@ -7,10 +7,7 @@ export default defineManifest({
   version: packageData.version,
   manifest_version: 3,
   icons: {
-    16: 'img/bitbadgeslogo.png',
-    32: 'img/bitbadgeslogo.png',
-    48: 'img/bitbadgeslogo.png',
-    128: 'img/bitbadgeslogo.png',
+    128: 'img/bitbadgeslogo-128.png',
   },
   action: {
     default_popup: 'popup.html',
@@ -20,27 +17,15 @@ export default defineManifest({
     service_worker: 'src/background/index.ts',
     type: 'module',
   },
-  content_scripts: [
-    {
-      matches: ['<all_urls>'],
-      js: ['src/contentScript/index.ts'],
-    },
-  ],
   web_accessible_resources: [
     {
-      resources: [
-        'img/bitbadgeslogo.png',
-        'img/bitbadgeslogo.png',
-        'img/bitbadgeslogo.png',
-        'img/bitbadgeslogo.png',
-      ],
+      resources: ['img/bitbadgeslogo.png', 'img/bitbadgeslogo-128.png'],
       matches: [],
     },
   ],
 
   externally_connectable: {
     matches: ['http://localhost:3000/*', 'https://bitbadges.io/*'],
-    // matches: ['<all_urls>'],
   },
   permissions: ['storage'],
 })

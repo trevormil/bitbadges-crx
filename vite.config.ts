@@ -19,5 +19,12 @@ export default defineConfig(({ mode }) => {
     },
 
     plugins: [crx({ manifest }), react(), nodePolyfills()],
+    server: {
+      port: 5173,
+      strictPort: true,
+      hmr: {
+        port: 5173,
+      },
+    },
   }
 })

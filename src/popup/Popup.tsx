@@ -54,7 +54,6 @@ export const Popup = () => {
       assetOwnershipRequirements: AssetConditionGroup<NumberType>
     }[]
   } | null>(null)
-  const [loading, setLoading] = useState(false)
 
   const expectedBalances = settings?.expectedBalances ?? []
 
@@ -69,26 +68,9 @@ export const Popup = () => {
   }, [])
 
   useEffect(() => {
-    chrome.storage.sync.get(['info'], (result) => {
-      setAddresses(result.info)
-    })
-  }, [])
-
-  useEffect(() => {
-    chrome.runtime.onMessage.addListener((request) => {
-      if (request.type === 'SET_INFO') {
-        setAddresses([...addresses, ...request.data].filter((x, i, a) => a.indexOf(x) === i))
-        chrome.storage.sync.set({ info: request.data })
-      }
-    })
-  }, [])
-
-  useEffect(() => {
     if (!selectedAddress) {
       return
     }
-
-    setLoading(true)
 
     BitBadgesApi?.getAccounts({
       accountsToFetch: [
@@ -117,8 +99,6 @@ export const Popup = () => {
         }),
       }).then((res) => {
         setCollections(res.collections)
-
-        setLoading(false)
       })
     })
 
@@ -176,11 +156,6 @@ export const Popup = () => {
                   suggestedAddresses={addresses}
                 />
               </div>
-              {loading && (
-                <div className="w-full flex-center">
-                  <Spin />
-                </div>
-              )}
               {selectedAccount && (
                 <>
                   <div className="text-center">
