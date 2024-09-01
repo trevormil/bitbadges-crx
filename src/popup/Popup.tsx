@@ -21,8 +21,6 @@ import '../styles/globals.css'
 import '../styles/index.css'
 import '../styles/antd-override-styles.css'
 
-import { Spin } from 'antd'
-
 export type DesiredNumberType = bigint
 export const ConvertFunction = BigIntify
 const BACKEND_URL = 'https://api.bitbadges.io'
