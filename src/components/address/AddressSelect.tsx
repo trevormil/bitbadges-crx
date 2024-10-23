@@ -2,12 +2,12 @@ import { Dropdown, Input, Tooltip } from 'antd'
 import { useState } from 'react'
 
 import { EditOutlined, MinusOutlined } from '@ant-design/icons'
+import { Divider } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
+import { BitBadgesUserInfo, convertToBitBadgesAddress } from 'bitbadgesjs-sdk'
+import { SuggestedAddressButton } from '../../popup/Popup'
 import { SearchDropdown } from '../navigation/SearchDropdown'
 import { AddressDisplay } from './AddressDisplay'
-import { Divider } from 'antd'
-import { BitBadgesUserInfo, convertToCosmosAddress, BitBadgesAPI } from 'bitbadgesjs-sdk'
-import { SuggestedAddressButton } from '../../popup/Popup'
 
 export enum EnterMethod {
   Single = 'Single',
@@ -109,7 +109,7 @@ export function AddressSelect({
                   {suggestedAddresses
                     .filter((x) => x && x !== 'Total' && x !== 'Mint' && x !== 'All' && x)
                     .filter((x) => {
-                      return convertToCosmosAddress(x).length <= 45
+                      return convertToBitBadgesAddress(x).length <= 45
                     })
                     .slice(0, 6)
                     .filter((x, i, a) => a.indexOf(x) === i)

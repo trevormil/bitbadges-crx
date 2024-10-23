@@ -1,17 +1,12 @@
 import { Avatar, Spin, Tooltip } from 'antd'
-import {
-  BitBadgesUserInfo,
-  SupportedChain,
-  getChainForAddress,
-  BitBadgesAPI,
-} from 'bitbadgesjs-sdk'
+import { BitBadgesUserInfo, SupportedChain, getChainForAddress } from 'bitbadgesjs-sdk'
 import { useEffect, useState } from 'react'
+import { BitBadgesApi } from '../../popup/Popup'
 import { Address } from './Address'
 import { BlockiesAvatar } from './Blockies'
-import { BitBadgesApi, DesiredNumberType } from '../../popup/Popup'
 
 export const ETH_LOGO = '/img/ethereum-logo.png'
-export const COSMOS_LOGO = '/img/cosmos-logo.png'
+export const COSMOS_LOGO = '/img/bitbadgeslogo.png'
 export const BITCOIN_LOGO = '/img/bitcoin-logo.png'
 export const SOLANA_LOGO = '/img/solana-logo.png'
 

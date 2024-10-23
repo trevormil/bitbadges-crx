@@ -2,7 +2,7 @@ import { Menu, Spin, Typography } from 'antd'
 import {
   BitBadgesUserInfo,
   GetSearchSuccessResponse,
-  convertToCosmosAddress
+  convertToBitBadgesAddress,
 } from 'bitbadgesjs-sdk'
 import { useEffect, useState } from 'react'
 
@@ -112,7 +112,7 @@ export function SearchDropdown({
                   <Menu.Item
                     className="dropdown-item"
                     onClick={async () => {
-                      await onSearch(convertToCosmosAddress(ethAddress), true, false)
+                      await onSearch(convertToBitBadgesAddress(ethAddress), true, false)
                     }}
                   >
                     <div className="flex-between">
