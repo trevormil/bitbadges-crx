@@ -18,9 +18,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:firefox": "tsc && vite build --target firefox120 --mode firefox",
+    
     "preview": "vite preview",
     "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'",
-    "zip": "npm run build && node src/zip.js"
+    "zip": "npm run build && node src/zip.js",
+    "zip:firefox": "npm run build:firefox && node src/zip.js --firefox"
   },
   "dependencies": {
     "antd": "^4.24.15",
@@ -35,11 +38,13 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.19",
     "@types/chrome": "^0.0.246",
+    "@types/firefox-webext-browser": "^120.0.4",
     "@types/react": "^18.2.28",
     "@types/react-blockies": "^1.4.4",
     "@types/react-dom": "^18.2.13",
     "@vitejs/plugin-react": "^4.1.0",
     "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
     "gulp": "^5.0.0",
     "gulp-zip": "^6.0.0",
     "postcss": "^8.4.38",

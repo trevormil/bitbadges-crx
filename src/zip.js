@@ -4,7 +4,10 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const manifest = require('../build/manifest.json')
 
-gulp
-  .src('build/**', { encoding: false })
-  .pipe(zip(`${manifest.name.replaceAll(' ', '-')}-${manifest.version}.zip`))
-  .pipe(gulp.dest('package'))
+// Get the browser from command line args
+const isFirefox = process.argv.includes('--firefox')
+
+const browserPrefix = isFirefox ? 'firefox' : 'chrome'
+const fileName = `${manifest.name.replaceAll(' ', '-')}-${browserPrefix}-${manifest.version}.zip`
+
+gulp.src('build/**', { encoding: false }).pipe(zip(fileName)).pipe(gulp.dest('package'))
