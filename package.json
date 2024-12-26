@@ -1,7 +1,7 @@
 {
   "name": "bitbadges-crx",
   "displayName": "bitbadges-crx",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Trevor Miller",
   "description": "This is a browser extension that allows users to view BitBadges portfolio insights.",
   "type": "module",
