@@ -226,7 +226,7 @@ export const Popup = () => {
             </div>
             <div className="secondary-text text-xs mt-12 mb-2 text-center">
               Head over to{' '}
-              <a href="https://bitbadges.io/chrome-extension" target="_blank" rel="noreferrer">
+              <a href="https://bitbadges.io/extension" target="_blank" rel="noreferrer">
                 the options page
               </a>{' '}
               to customize your settings and add more verification checks.
